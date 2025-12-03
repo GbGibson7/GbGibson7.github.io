@@ -21,6 +21,24 @@
     --bg-light: #f8fafc;
 }
 
+/* Better scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -74,10 +92,29 @@ body {
     color: var(--gray-dark);
     font-weight: 500;
     transition: color 0.3s;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* Active navigation link */
+.nav-links a.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
 }
 
 .btn-resume {
@@ -90,10 +127,31 @@ body {
     align-items: center;
     gap: 8px;
     transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-resume:hover {
     background-color: var(--primary-dark);
+}
+
+.btn-resume::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.btn-resume:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 /* Mobile Menu */
@@ -156,6 +214,8 @@ body {
     font-weight: 600;
     display: inline-block;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
@@ -182,6 +242,25 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-primary::before, .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 .hero-image {
     flex: 0 0 300px;
 }
@@ -195,10 +274,17 @@ body {
     border: 5px solid var(--white);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.3s forwards;
 }
 
 .profile-photo:hover {
     transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .placeholder-photo {
@@ -279,6 +365,8 @@ body {
     border-radius: 5px;
     border: 1px solid var(--primary-color);
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .about-links a:hover {
@@ -352,6 +440,11 @@ body {
     }
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -365,11 +458,25 @@ body {
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     animation: fadeInUp 0.6s ease-out;
     animation-fill-mode: both;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
 }
 
 .project-card:hover {
@@ -377,12 +484,16 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
+.project-card:hover::before {
+    transform: translateX(0);
+}
+
 /* Stagger animations for first 3 projects */
 .project-card:nth-child(1) { animation-delay: 0.1s; }
 .project-card:nth-child(2) { animation-delay: 0.2s; }
 .project-card:nth-child(3) { animation-delay: 0.3s; }
 
-/* Hide projects 4-6 by default */
+/* Hide projects 4-7 by default */
 .project-card:nth-child(n+4) {
     display: none;
 }
@@ -396,11 +507,14 @@ body {
 .project-card.show:nth-child(4) { animation-delay: 0.1s; }
 .project-card.show:nth-child(5) { animation-delay: 0.2s; }
 .project-card.show:nth-child(6) { animation-delay: 0.3s; }
+.project-card.show:nth-child(7) { animation-delay: 0.4s; }
 
 .project-card h3 {
     color: var(--dark);
     margin-bottom: 15px;
     font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .project-tech {
@@ -408,6 +522,8 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 .project-tech span {
@@ -424,6 +540,8 @@ body {
     margin-bottom: 20px;
     line-height: 1.6;
     flex-grow: 1;
+    position: relative;
+    z-index: 2;
 }
 
 /* Project Results */
@@ -435,6 +553,8 @@ body {
     font-size: 0.9rem;
     color: #0369a1;
     border-left: 3px solid var(--primary-color);
+    position: relative;
+    z-index: 2;
 }
 
 .project-results strong {
@@ -446,6 +566,8 @@ body {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .btn-code, .btn-demo {
@@ -461,6 +583,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-code {
@@ -493,6 +617,11 @@ body {
     background-color: var(--gray);
 }
 
+/* Loading spinner */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
 /* View Toggle Button */
 .view-toggle {
     text-align: center;
@@ -512,6 +641,8 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 #toggle-projects:hover {
@@ -520,9 +651,39 @@ body {
     transform: translateY(-2px);
 }
 
+#toggle-projects::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+#toggle-projects:active::after {
+    width: 300px;
+    height: 300px;
+}
+
 .view-all-projects {
     text-align: center;
     margin-top: 40px;
+}
+
+/* Project count indicator */
+.project-count {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
 /* Contact Section */
@@ -634,6 +795,42 @@ footer p {
     text-decoration: underline;
 }
 
+/* Print styles */
+@media print {
+    .navbar,
+    .hero-buttons,
+    #toggle-projects,
+    .view-all-projects,
+    .social-links {
+        display: none !important;
+    }
+    
+    .project-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .hero {
+        background: none !important;
+    }
+    
+    .profile-photo {
+        filter: grayscale(100%);
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
+    }
+    
+    .btn-code, .btn-demo {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -664,6 +861,10 @@ footer p {
         margin: 15px 0;
         font-size: 1.2rem;
         color: var(--dark);
+    }
+    
+    .nav-links a.active::after {
+        display: none;
     }
     
     .hero .container {
@@ -728,6 +929,12 @@ footer p {
     .view-toggle {
         margin: 20px 0;
     }
+    
+    .project-count {
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+    }
 }
 
 @media (max-width: 480px) {
@@ -749,5 +956,25 @@ footer p {
     
     .project-card, .skill-category, .contact-item {
         padding: 20px;
+    }
+    
+    .skill-tags span {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .project-tech span {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .contact-item {
+        padding: 20px;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
 }

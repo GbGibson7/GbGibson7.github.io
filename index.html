@@ -28,12 +28,34 @@
             gap: 8px;
             transition: all 0.3s ease;
             font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .btn-demo:hover {
             background: linear-gradient(135deg, #45a049, #3d8b40);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-demo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn-demo:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-code {
@@ -48,12 +70,34 @@
             gap: 8px;
             transition: all 0.3s ease;
             font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .btn-code:hover {
             background: linear-gradient(135deg, #222, #111);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-code::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn-code:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-docs {
@@ -68,12 +112,165 @@
             gap: 8px;
             transition: all 0.3s ease;
             font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .btn-docs:hover {
             background: linear-gradient(135deg, #0b7dda, #0a6ebd);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        .btn-docs::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn-docs:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Additional enhancements */
+        .project-count {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 15px;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Loading animation for images */
+        img {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        /* Project card counter */
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .project-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 1;
+            line-height: 1;
+        }
+        
+        /* Tooltip for disabled buttons */
+        .btn-demo.disabled {
+            position: relative;
+            cursor: not-allowed;
+        }
+        
+        .btn-demo.disabled::after {
+            content: 'Demo Coming Soon';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            margin-bottom: 5px;
+        }
+        
+        .btn-demo.disabled:hover::after {
+            opacity: 1;
+        }
+
+        /* Additional button enhancements */
+        .btn-primary, .btn-secondary, .btn-resume {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary::before, .btn-secondary::before, .btn-resume::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before, .btn-secondary:hover::before, .btn-resume:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        /* Responsive project header */
+        @media (max-width: 768px) {
+            .project-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .project-count {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .project-number {
+                font-size: 2.5rem;
+                right: 15px;
+                top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-number {
+                font-size: 2rem;
+                right: 10px;
+                top: 10px;
+            }
+            
+            .project-count {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -201,12 +398,16 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-count" id="project-count">3/7 Projects</div>
+            </div>
             <p class="section-subtitle">Real-world data science projects with measurable impact</p>
             
             <div class="project-grid">
                 <!-- Project 1 - Conflict Early Warning System with Free Tools -->
                 <div class="project-card">
+                    <div class="project-number">01</div>
                     <h3>Conflict Early Warning System with Free Tools</h3>
                     <div class="project-tech">
                         <span>Python</span>
@@ -237,6 +438,7 @@
                 
                 <!-- Project 2 - Original Conflict Early Warning System -->
                 <div class="project-card">
+                    <div class="project-number">02</div>
                     <h3>Conflict Early Warning System API</h3>
                     <div class="project-tech">
                         <span>Python</span>
@@ -263,6 +465,7 @@
                 
                 <!-- Project 3 -->
                 <div class="project-card">
+                    <div class="project-number">03</div>
                     <h3>Climate Prediction Model</h3>
                     <div class="project-tech">
                         <span>Python</span>
@@ -280,7 +483,7 @@
                         <a href="https://github.com/GbGibson7/climate-prediction" target="_blank" class="btn-code">
                             <i class="fab fa-github"></i> View Code
                         </a>
-                        <a href="https://app.powerbi.com" target="_blank" class="btn-demo">
+                        <a href="https://app.powerbi.com" target="_blank" class="btn-demo disabled">
                             <i class="fas fa-external-link-alt"></i> Power BI Dashboard
                         </a>
                     </div>
@@ -288,6 +491,7 @@
                 
                 <!-- Project 4 -->
                 <div class="project-card">
+                    <div class="project-number">04</div>
                     <h3>Road Accident Analysis</h3>
                     <div class="project-tech">
                         <span>SQL</span>
@@ -313,6 +517,7 @@
 
                 <!-- Project 5 - Film Classification -->
                 <div class="project-card">
+                    <div class="project-number">05</div>
                     <h3>Film Classification & Automation</h3>
                     <div class="project-tech">
                         <span>Python</span>
@@ -337,6 +542,7 @@
 
                 <!-- Project 6 - California Housing -->
                 <div class="project-card">
+                    <div class="project-number">06</div>
                     <h3>California House Price Predictor</h3>
                     <div class="project-tech">
                         <span>Python</span>
@@ -361,6 +567,7 @@
 
                 <!-- Project 7 - SyriaTel Churn -->
                 <div class="project-card">
+                    <div class="project-number">07</div>
                     <h3>SyriaTel Customer Churn Analysis</h3>
                     <div class="project-tech">
                         <span>Python</span>
