@@ -6,12 +6,13 @@
     <title>Kiprop Gibson - Data Scientist Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Kiprop Gibson</a>
+            <a href="#home" class="logo">Kiprop Gibson</a>
             <!-- Hamburger Menu for Mobile -->
             <button class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
@@ -45,9 +46,13 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Add your professional photo here later -->
-                <div class="placeholder-photo">
+                <img src="images/profile-photo.jpg" 
+                     alt="Kiprop Gibson - Data Scientist" 
+                     class="profile-photo"
+                     onerror="this.style.display='none'; document.querySelector('.placeholder-photo').style.display='flex';">
+                <div class="placeholder-photo" style="display: none;">
                     <i class="fas fa-user-tie"></i>
+                    <p>Professional Photo</p>
                 </div>
             </div>
         </div>
@@ -83,6 +88,8 @@
                         <span>Python</span>
                         <span>SQL</span>
                         <span>Git</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -92,14 +99,27 @@
                         <span>TensorFlow</span>
                         <span>NLP</span>
                         <span>Time Series</span>
+                        <span>Predictive Modeling</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
                     <div class="skill-tags">
                         <span>Tableau</span>
-                        <span>Power BI</span>
+                        <span>Power BI (DAX)</span>
                         <span>Matplotlib</span>
+                        <span>Seaborn</span>
+                        <span>Looker</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>MySQL</span>
+                        <span>ETL Processes</span>
+                        <span>MS SQL Server</span>
+                        <span>Data Pipelines</span>
                     </div>
                 </div>
             </div>
@@ -110,6 +130,8 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Real-world data science projects with measurable impact</p>
+            
             <div class="project-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -119,11 +141,20 @@
                         <span>NLP</span>
                         <span>Random Forest</span>
                         <span>Tableau</span>
+                        <span>SQL</span>
+                        <span>TensorFlow</span>
                     </div>
-                    <p>AI-driven system predicting conflict hotspots with 88% accuracy using social media sentiment analysis.</p>
+                    <p>Developed ML models for conflict area mapping and AI-driven early warning system, delivering actionable monthly reports to IGAD with 88% accuracy.</p>
+                    <div class="project-results">
+                        <strong>Results:</strong> 88% accuracy • 50% faster processing • IGAD adoption
+                    </div>
                     <div class="project-links">
-                        <a href="https://github.com/GbGibson7" target="_blank">View Code</a>
-                        <a href="#" class="disabled">Live Demo (Coming Soon)</a>
+                        <a href="https://github.com/GbGibson7/conflict-early-warning" target="_blank" class="btn-code">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://public.tableau.com/app/profile/kiprop.gibson" target="_blank" class="btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Tableau Dashboard
+                        </a>
                     </div>
                 </div>
                 
@@ -133,13 +164,22 @@
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Time Series</span>
-                        <span>ARIMA</span>
+                        <span>ARIMA/Prophet</span>
                         <span>Power BI</span>
+                        <span>WRF-Hydro</span>
+                        <span>DAX</span>
                     </div>
-                    <p>Weather forecasting and flood prediction model for agricultural planning and disaster preparedness.</p>
+                    <p>Built ML models for meteorological data processing and co-designed WRF-Hydro model for AI-driven weather forecasting and flood prediction.</p>
+                    <div class="project-results">
+                        <strong>Results:</strong> Early warning systems • Agricultural planning • Disaster preparedness
+                    </div>
                     <div class="project-links">
-                        <a href="https://github.com/GbGibson7" target="_blank">View Code</a>
-                        <a href="#" class="disabled">Live Demo (Coming Soon)</a>
+                        <a href="https://github.com/GbGibson7/climate-prediction" target="_blank" class="btn-code">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://app.powerbi.com" target="_blank" class="btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Power BI Dashboard
+                        </a>
                     </div>
                 </div>
                 
@@ -151,13 +191,28 @@
                         <span>Python</span>
                         <span>Machine Learning</span>
                         <span>Tableau</span>
+                        <span>Power BI</span>
+                        <span>Data Visualization</span>
                     </div>
-                    <p>Analysis of 3M+ records to identify accident patterns and predict high-risk scenarios.</p>
+                    <p>Analyzed 3M+ accident records to identify patterns and predict high-risk scenarios using ML models for NTSA stakeholders.</p>
+                    <div class="project-results">
+                        <strong>Results:</strong> 3M+ records analyzed • Predictive models • Actionable insights
+                    </div>
                     <div class="project-links">
-                        <a href="https://github.com/GbGibson7" target="_blank">View Code</a>
-                        <a href="#" class="disabled">Live Demo (Coming Soon)</a>
+                        <a href="https://github.com/GbGibson7/road-accident-analysis" target="_blank" class="btn-code">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://public.tableau.com/app/profile/kiprop.gibson" target="_blank" class="btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Tableau Dashboard
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="view-all-projects">
+                <a href="project-pages/case-studies.html" class="btn-primary">
+                    <i class="fas fa-book-open"></i> View Detailed Case Studies
+                </a>
             </div>
         </div>
     </section>
@@ -166,12 +221,15 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Available for data science opportunities and collaborations</p>
+            
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h3>Email</h3>
                         <p>kipropgibson13@gmail.com</p>
+                        <a href="mailto:kipropgibson13@gmail.com" class="contact-link">Send Email</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -179,6 +237,7 @@
                     <div>
                         <h3>Phone</h3>
                         <p>+254 791 555 404</p>
+                        <a href="tel:+254791555404" class="contact-link">Call Now</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -186,8 +245,21 @@
                     <div>
                         <h3>Location</h3>
                         <p>Nairobi, Kenya</p>
+                        <a href="https://maps.google.com/?q=Nairobi+Kenya" target="_blank" class="contact-link">View on Map</a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ngetichgibson" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/GbGibson7" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://public.tableau.com/app/profile/kiprop.gibson" target="_blank" class="social-link">
+                    <i class="fas fa-chart-bar"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -196,7 +268,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 Kiprop Gibson. All rights reserved.</p>
-            <p>Built with ❤️ for data science</p>
+            <p>Built with ❤️ for data science | Portfolio: <a href="https://gbgibson7.github.io" class="footer-link">gbgibson7.github.io</a></p>
         </div>
     </footer>
 
