@@ -7,6 +7,75 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional CSS for the new buttons */
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-demo {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-demo:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-code {
+            background: linear-gradient(135deg, #333, #222);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-code:hover {
+            background: linear-gradient(135deg, #222, #111);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-docs {
+            background: linear-gradient(135deg, #2196F3, #0b7dda);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-docs:hover {
+            background: linear-gradient(135deg, #0b7dda, #0a6ebd);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -91,6 +160,7 @@
                         <span>Pandas</span>
                         <span>NumPy</span>
                         <span>Jupyter</span>
+                        <span>Streamlit</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -135,45 +205,51 @@
             <p class="section-subtitle">Real-world data science projects with measurable impact</p>
             
             <div class="project-grid">
-                <!-- Project 1 - Conflict Early Warning System -->
+                <!-- Project 1 - Conflict Early Warning System with Free Tools -->
                 <div class="project-card">
                     <h3>Conflict Early Warning System with Free Tools</h3>
                     <div class="project-tech">
                         <span>Python</span>
-                        <span>Jupyter Notebook</span>
-                        <span>Git</span>
+                        <span>Streamlit</span>
+                        <span>Machine Learning</span>
+                        <span>Jupyter</span>
                         <span>Open Source</span>
-                        <span>Conflict Analysis</span>
-                        <span>Early Warning</span>
+                        <span>Dashboard</span>
+                        <span>NLP</span>
+                        <span>Tableau</span>
                     </div>
-                    <p>A comprehensive early warning system for conflict analysis using entirely free tools. This project demonstrates how to build scalable conflict monitoring solutions without expensive proprietary software.</p>
+                    <p>A comprehensive early warning system for conflict analysis using entirely free tools. Features include predictive modeling, interactive dashboards, and automated conflict detection deployed as a live web application with real-time monitoring capabilities.</p>
                     <div class="project-results">
-                        <strong>Key Features:</strong> Full pipeline with free tools • Automated conflict detection • Scalable architecture • Cost-effective solution
+                        <strong>Key Features:</strong> Live interactive dashboard • 88% prediction accuracy • Automated alerts • Cost-effective solution • Real-time monitoring
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/GbGibson7/Conflict-Early-Warning-System-With-Free-Tools" target="_blank" class="btn-code">
-                            <i class="fab fa-github"></i> View Repository
+                        <a href="https://gbgibson7-conflict-early-warning-system-wit-dashboardapp-dsv9g3.streamlit.app/" target="_blank" class="btn-demo">
+                            <i class="fas fa-rocket"></i> Live Interactive Demo
                         </a>
-                        <a href="https://github.com/GbGibson7/Conflict-Early-Warning-System-With-Free-Tools/blob/main/README.md" target="_blank" class="btn-demo">
-                            <i class="fas fa-book"></i> View Documentation
+                        <a href="https://github.com/GbGibson7/Conflict-Early-Warning-System-With-Free-Tools" target="_blank" class="btn-code">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                        <a href="https://github.com/GbGibson7/Conflict-Early-Warning-System-With-Free-Tools/blob/main/README.md" target="_blank" class="btn-docs">
+                            <i class="fas fa-book"></i> Documentation
                         </a>
                     </div>
                 </div>
                 
                 <!-- Project 2 - Original Conflict Early Warning System -->
                 <div class="project-card">
-                    <h3>Conflict Early Warning System</h3>
+                    <h3>Conflict Early Warning System API</h3>
                     <div class="project-tech">
                         <span>Python</span>
-                        <span>NLP</span>
+                        <span>API Development</span>
                         <span>Random Forest</span>
                         <span>Tableau</span>
                         <span>SQL</span>
                         <span>TensorFlow</span>
+                        <span>Flask</span>
                     </div>
-                    <p>Developed ML models for conflict area mapping and AI-driven early warning system, delivering actionable monthly reports to IGAD with 88% accuracy.</p>
+                    <p>Developed ML models for conflict area mapping and AI-driven early warning system with API integration, delivering actionable monthly reports to IGAD with 88% accuracy.</p>
                     <div class="project-results">
-                        <strong>Results:</strong> 88% accuracy • 50% faster processing • IGAD adoption
+                        <strong>Results:</strong> 88% accuracy • 50% faster processing • IGAD adoption • API integration
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/GbGibson7/conflict-early-warning-system-with-api" target="_blank" class="btn-code">
@@ -253,8 +329,8 @@
                         <a href="https://github.com/GbGibson7/Film-Classification-and-Automation-Project" target="_blank" class="btn-code">
                             <i class="fab fa-github"></i> View Code
                         </a>
-                        <a href="https://github.com/GbGibson7/Film-Classification-and-Automation-Project/blob/main/README.md" target="_blank" class="btn-demo">
-                            <i class="fas fa-book"></i> Read Case Study
+                        <a href="https://github.com/GbGibson7/Film-Classification-and-Automation-Project/blob/main/README.md" target="_blank" class="btn-docs">
+                            <i class="fas fa-book"></i> Case Study
                         </a>
                     </div>
                 </div>
@@ -277,8 +353,8 @@
                         <a href="https://github.com/GbGibson7/California-House-Price-Predictor" target="_blank" class="btn-code">
                             <i class="fab fa-github"></i> View Code
                         </a>
-                        <a href="https://github.com/GbGibson7/California-House-Price-Predictor/blob/main/README.md" target="_blank" class="btn-demo">
-                            <i class="fas fa-book"></i> Read Case Study
+                        <a href="https://github.com/GbGibson7/California-House-Price-Predictor/blob/main/README.md" target="_blank" class="btn-docs">
+                            <i class="fas fa-book"></i> Case Study
                         </a>
                     </div>
                 </div>
@@ -301,8 +377,8 @@
                         <a href="https://github.com/GbGibson7/Phase-3-Project---SyriaTel-Churn" target="_blank" class="btn-code">
                             <i class="fab fa-github"></i> View Code
                         </a>
-                        <a href="https://github.com/GbGibson7/Phase-3-Project---SyriaTel-Churn/blob/main/README.md" target="_blank" class="btn-demo">
-                            <i class="fas fa-book"></i> Read Case Study
+                        <a href="https://github.com/GbGibson7/Phase-3-Project---SyriaTel-Churn/blob/main/README.md" target="_blank" class="btn-docs">
+                            <i class="fas fa-book"></i> Case Study
                         </a>
                     </div>
                 </div>
@@ -375,6 +451,14 @@
         <div class="container">
             <p>&copy; 2024 Kiprop Gibson. All rights reserved.</p>
             <p>Built with ❤️ for data science | Portfolio: <a href="https://gbgibson7.github.io" class="footer-link">gbgibson7.github.io</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                <i class="fas fa-external-link-alt"></i> Featured Project: 
+                <a href="https://gbgibson7-conflict-early-warning-system-wit-dashboardapp-dsv9g3.streamlit.app/" 
+                   target="_blank" 
+                   style="color: #4CAF50; text-decoration: none;">
+                   Conflict Early Warning System Live Demo
+                </a>
+            </p>
         </div>
     </footer>
 
