@@ -340,11 +340,23 @@ body {
     background-color: var(--white);
 }
 
+/* Project Grid Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .project-card {
@@ -356,12 +368,34 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
+
+/* Stagger animations for first 3 projects */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Hide projects 4-6 by default */
+.project-card:nth-child(n+4) {
+    display: none;
+}
+
+/* Show class for toggled projects */
+.project-card.show {
+    display: flex !important;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.project-card.show:nth-child(4) { animation-delay: 0.1s; }
+.project-card.show:nth-child(5) { animation-delay: 0.2s; }
+.project-card.show:nth-child(6) { animation-delay: 0.3s; }
 
 .project-card h3 {
     color: var(--dark);
@@ -457,6 +491,33 @@ body {
 .btn-demo.disabled:hover {
     transform: none;
     background-color: var(--gray);
+}
+
+/* View Toggle Button */
+.view-toggle {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#toggle-projects {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 12px 30px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#toggle-projects:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
 }
 
 .view-all-projects {
@@ -654,7 +715,7 @@ footer p {
         align-items: center;
     }
     
-    .btn-primary, .btn-secondary {
+    .btn-primary, .btn-secondary, #toggle-projects {
         width: 100%;
         max-width: 300px;
         text-align: center;
@@ -662,6 +723,10 @@ footer p {
     
     .project-links {
         flex-direction: column;
+    }
+    
+    .view-toggle {
+        margin: 20px 0;
     }
 }
 
